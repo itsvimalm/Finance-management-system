@@ -1,0 +1,297 @@
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #10b981;
+  /* Emerald */
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+
+  --sidebar-bg: #1e1b4b;
+  /* Dark Indigo */
+  --sidebar-text: #e0e7ff;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --card-bg: var(--surface);
+
+  /* DataTable Compatibility */
+  --bg-primary: var(--surface);
+  --bg-secondary: var(--background);
+  --text-primary: var(--text);
+}
+
+.dark {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border: #334155;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  --card-bg: var(--surface);
+
+  /* DataTable Compatibility */
+  --bg-primary: var(--surface);
+  --bg-secondary: #334155;
+  /* Slightly lighter than surface for hover/secondary */
+  --text-primary: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Layout */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Form Elements */
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.card {
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+.text-success {
+  color: var(--secondary);
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  /* Sidebar handling will be done in Sidebar.module.css */
+
+  .main-content {
+    padding: 1rem;
+    margin-top: 60px;
+    /* Space for mobile header */
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  /* Responsive Tables */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5rem;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--text-secondary);
+    text-align: left;
+  }
+
+  /* Form layouts */
+  .flex {
+    flex-direction: column;
+  }
+
+  .flex-row-mobile {
+    /* Special utility to keep row on mobile if needed */
+    flex-direction: row;
+  }
+}
+
+/* Password Input Styles */
+.password-group {
+  position: relative;
+  width: 100%;
+}
+
+.password-group input {
+  padding-right: 2.5rem;
+  margin-bottom: 1rem;
+  /* Ensure consistency with other inputs */
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  /* Center vertically in the container */
+  transform: translateY(-90%);
+  /* 50% of the container - approx half input height + margin offset? No. */
+  /* Input has margin-bottom: 1rem. The relative container wraps only the input and button. */
+  /* If input has margin-bottom, the container height includes that margin? No, margin is outside content. */
+  /* Wait, usually we wrap <div className="relative"><input style="margin-bottom:0" /><button /></div> */
+  /* If I leave margin on input, the button might be centered relative to input+margin if container wraps it tightly. */
+  /* Best practice: Remove margin from input inside the group, add margin to the group. */
+
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.password-toggle-btn:hover {
+  color: var(--text);
+}
