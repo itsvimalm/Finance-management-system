@@ -28,7 +28,7 @@ const Expenses = () => {
         try {
             const [dreamsRes, savingsRes] = await Promise.all([
                 api.get('/dreams'),
-                api.get('/savings')
+                api.get('/data/savings')
             ]);
             setDreams(dreamsRes.data);
             setSavingsGoals(savingsRes.data);

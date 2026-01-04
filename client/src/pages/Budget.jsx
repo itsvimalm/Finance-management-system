@@ -20,7 +20,7 @@ const Budget = () => {
                     api.get('/data/transactions?type=Expenses'),
                     api.get('/data/settings'),
                     api.get('/dreams'),
-                    api.get('/savings')
+                    api.get('/data/savings')
                 ]);
                 setBudgets(budRes.data);
                 setExpenses(expRes.data);
