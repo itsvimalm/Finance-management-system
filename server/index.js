@@ -13,6 +13,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/data', require('./routes/dataRoutes'));
+app.use('/api/dreams', require('./routes/dreamRoutes'));
 
 app.get('/', (req, res) => {
   res.send('Financial Tracker API is running');

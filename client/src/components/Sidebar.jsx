@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Wallet, TrendingUp, PiggyBank, Settings, LogOut, Menu, X, Shield } from 'lucide-react';
+import { LayoutDashboard, Wallet, TrendingUp, PiggyBank, Settings, LogOut, Menu, X, Shield, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import styles from './Sidebar.module.css';
 
@@ -18,6 +18,7 @@ const Sidebar = () => {
         { path: '/expenses', label: 'Expenses', icon: <TrendingUp size={20} /> },
         { path: '/budget', label: 'Budget', icon: <PiggyBank size={20} /> },
         { path: '/savings', label: 'Savings', icon: <TrendingUp size={20} /> },
+        { path: '/dreams', label: 'Dreams', icon: <Gift size={20} /> },
         { path: '/settings', label: 'Settings', icon: <Settings size={20} /> },
     ];
 

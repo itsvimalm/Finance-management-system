@@ -7,6 +7,7 @@ import Income from './pages/Income';
 import Expenses from './pages/Expenses';
 import Budget from './pages/Budget';
 import Savings from './pages/Savings';
+import Dreams from './pages/Dreams';
 import Settings from './pages/Settings';
 import Landing from './pages/Landing';
 import { useAuth } from './context/AuthContext';
@@ -63,6 +64,7 @@ const App = () => {
                 <Route path="/expenses" element={<PrivateRoute><Expenses /></PrivateRoute>} />
                 <Route path="/budget" element={<PrivateRoute><Budget /></PrivateRoute>} />
                 <Route path="/savings" element={<PrivateRoute><Savings /></PrivateRoute>} />
+                <Route path="/dreams" element={<PrivateRoute><Dreams /></PrivateRoute>} />
                 <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
                 <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
                 {/* Add Budget and Savings later */}
