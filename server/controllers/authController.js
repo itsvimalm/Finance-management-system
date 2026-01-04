@@ -136,19 +136,19 @@ const forgotPassword = async (req, res) => {
                 <div class="container">
                     <div class="header">
                         <div class="logo">
-                            FinTrack
+                            CellFinanc
                         </div>
                     </div>
                     <h2>Password Reset Request</h2>
                     <p>Hello ${user.get('Name')},</p>
-                    <p>We received a request to reset your password for your FinTrack account. If you didn't make this request, you can safely ignore this email.</p>
+                    <p>We received a request to reset your password for your CellFinanc account. If you didn't make this request, you can safely ignore this email.</p>
                     <p style="text-align: center;">
                         <a href="${resetUrl}" class="button">Reset Password</a>
                     </p>
                     <p>Or copy and paste this link into your browser:</p>
                     <p style="word-break: break-all; color: #2563eb;">${resetUrl}</p>
                     <div class="footer">
-                        &copy; 2026 FinTrack. All rights reserved.
+                        &copy; 2026 CellFinanc. All rights reserved.
                     </div>
                 </div>
             </body>

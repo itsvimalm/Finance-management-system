@@ -10,7 +10,7 @@ const Landing = () => {
                     <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
                         <TrendingUp size={20} />
                     </div>
-                    FinTrack
+                    CellFinanc
                 </div>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                     <Link to="/login" className="btn" style={{ color: 'var(--text)', fontWeight: '600' }}>Login</Link>
@@ -41,7 +41,7 @@ const Landing = () => {
             {/* Features */}
             <section style={{ padding: '4rem 2rem', backgroundColor: 'var(--surface)' }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2rem' }}>Why FinTrack?</h2>
+                    <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2rem' }}>Why CellFinanc?</h2>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
@@ -73,7 +73,7 @@ const Landing = () => {
 
             {/* Footer */}
             <footer style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem', borderTop: '1px solid var(--border)' }}>
-                <p>&copy; 2026 FinTrack. Built for financial freedom.</p>
+                <p>&copy; 2026 CellFinanc. Built for financial freedom.</p>
             </footer>
         </div>
     );

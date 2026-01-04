@@ -40,7 +40,7 @@ const ForgotPassword = () => {
                 <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
                     <TrendingUp size={20} />
                 </div>
-                FinTrack
+                CellFinanc
             </Link>
             <div className="card" style={{ width: '400px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>

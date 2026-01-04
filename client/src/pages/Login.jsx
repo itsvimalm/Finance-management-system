@@ -41,7 +41,7 @@ const Login = () => {
                 <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
                     <TrendingUp size={20} />
                 </div>
-                FinTrack
+                CellFinanc
             </Link>
             <div className="card" style={{ width: '400px' }}>
                 <h2 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Login</h2>

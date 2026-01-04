@@ -28,7 +28,7 @@ const Sidebar = () => {
     return (
         <div className={styles.sidebar}>
             <div className={styles.logo}>
-                <h2>FinTrack</h2>
+                <h2>CellFinanc</h2>
                 <button className={styles.mobileToggle} onClick={toggleMenu}>
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -53,7 +53,7 @@ const Sidebar = () => {
                     <span>Logout</span>
                 </button>
                 <div className={styles.mobileCopyright} style={{ textAlign: 'center', fontSize: '0.75rem', opacity: 0.5, padding: '1rem 0' }}>
-                    &copy; 2026 FinTrack
+                    &copy; 2026 CellFinanc
                 </div>
             </nav>
 
@@ -65,7 +65,7 @@ const Sidebar = () => {
             </button>
 
             <div className={styles.desktopCopyright} style={{ marginTop: '0.5rem', fontSize: '0.75rem', opacity: 0.5, textAlign: 'center', display: isOpen ? 'none' : 'block' }}>
-                &copy; 2026 FinTrack
+                &copy; 2026 CellFinanc
             </div>
         </div>
     );

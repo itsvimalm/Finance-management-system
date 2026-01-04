@@ -16,7 +16,7 @@ Netlify is excellent for hosting the React frontend.
 3.  **Environment Variables (Netlify)**:
     *   Go to **Site Settings > Environment variables**.
     *   Add `VITE_API_URL`: This should be the URL of your deployed backend (see Section 2).
-    *   *Example*: `https://my-fintrack-server.onrender.com/api`
+    *   *Example*: `https://my-cellfinanc-server.onrender.com/api`
 
 *Note: A `netlify.toml` file has been added to the `client` directory to handle page routing (preventing 404s on refresh).*
 
@@ -46,11 +46,11 @@ When adding `GOOGLE_SHEETS_PRIVATE_KEY` to Render/Railway/Netlify, ensure you co
 
 ## 3. Connecting Them
 
-1.  **Deploy Backend first**: Get your live backend URL (e.g., `https://fintrack-api.onrender.com`).
+1.  **Deploy Backend first**: Get your live backend URL (e.g., `https://cellfinanc-api.onrender.com`).
 2.  **Update Frontend**: Go back to your Netlify dashboard for the client.
-3.  **Set `VITE_API_URL`**: Update this variable to `https://fintrack-api.onrender.com/api` (ensure it ends with `/api` if your router expects it, or just the base domain depending on your `axios` config).
+3.  **Set `VITE_API_URL`**: Update this variable to `https://cellfinanc-api.onrender.com/api` (ensure it ends with `/api` if your router expects it, or just the base domain depending on your `axios` config).
     *   *Current Config uses*: `baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api'`
-    *   So, set the variable to: `https://fintrack-api.onrender.com/api`
+    *   So, set the variable to: `https://cellfinanc-api.onrender.com/api`
 4.  **Redeploy Frontend**: Trigger a new deployment in Netlify so it builds with the new variable.
 
 ## File Structure Reference
