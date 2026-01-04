@@ -133,8 +133,9 @@ const Expenses = () => {
                     <div style={{ flex: 1 }}>
                         <label>Category</label>
                         <select value={formData.Category} onChange={e => setFormData({ ...formData, Category: e.target.value })}>
-                            <option value="">Select Category</option>
                             <optgroup label="Standard Categories">
+                                <option value="">Select Category</option>
+
                                 <option value="Food">Food</option>
                                 <option value="Transport">Transport</option>
                                 <option value="Rent">Rent</option>

@@ -9,16 +9,24 @@ const Budget = () => {
     const [formData, setFormData] = useState({ Category: '', MonthlyBudget: '' });
     const [currency, setCurrency] = useState('₹');
 
+    const [dreams, setDreams] = useState([]);
+    const [savingsGoals, setSavingsGoals] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [budRes, expRes, setRes] = await Promise.all([
+                const [budRes, expRes, setRes, dreamsRes, savingsRes] = await Promise.all([
                     api.get('/data/budget'),
                     api.get('/data/transactions?type=Expenses'),
-                    api.get('/data/settings')
+                    api.get('/data/settings'),
+                    api.get('/dreams'),
+                    api.get('/savings')
                 ]);
                 setBudgets(budRes.data);
                 setExpenses(expRes.data);
+                setDreams(dreamsRes.data);
+                setSavingsGoals(savingsRes.data);
+
                 if (setRes.data.Currency === 'USD') setCurrency('$');
                 else if (setRes.data.Currency === 'EUR') setCurrency('€');
                 else setCurrency('₹');
@@ -71,13 +79,35 @@ const Budget = () => {
                         <label>Category</label>
                         <select value={formData.Category} onChange={e => setFormData({ ...formData, Category: e.target.value })}>
                             <option value="">Select Category</option>
-                            <option value="Food">Food</option>
-                            <option value="Transport">Transport</option>
-                            <option value="Rent">Rent</option>
-                            <option value="Utilities">Utilities</option>
-                            <option value="Shopping">Shopping</option>
-                            <option value="Health">Health</option>
-                            <option value="Entertainment">Entertainment</option>
+                            <optgroup label="Standard Categories">
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Health">Health</option>
+                                <option value="Entertainment">Entertainment</option>
+                            </optgroup>
+
+                            {dreams.length > 0 && (
+                                <optgroup label="Dreams / Wishlist">
+                                    {dreams.map(dream => (
+                                        <option key={dream.DreamId} value={`Dream: ${dream.ItemName}`}>
+                                            Dream: {dream.ItemName}
+                                        </option>
+                                    ))}
+                                </optgroup>
+                            )}
+
+                            {savingsGoals.length > 0 && (
+                                <optgroup label="Savings Goals">
+                                    {savingsGoals.map(goal => (
+                                        <option key={goal.Id} value={`Saving: ${goal.Type}`}>
+                                            Saving: {goal.Type}
+                                        </option>
+                                    ))}
+                                </optgroup>
+                            )}
                         </select>
                     </div>
                     <div style={{ flex: 1, minWidth: '200px' }}>
