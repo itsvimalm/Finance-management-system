@@ -76,13 +76,27 @@ const Expenses = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // First, add the expense transaction
             const res = await api.post('/data/transactions', { ...formData, type: 'Expenses' });
             setTransactions([...transactions, res.data]);
+
+            // Check if this expense is towards a Dream, if so, add funds to it
+            if (formData.Category.startsWith('Dream: ')) {
+                const dreamName = formData.Category.replace('Dream: ', '');
+                const dream = dreams.find(d => d.ItemName === dreamName);
+                if (dream) {
+                    await api.post('/dreams/add-funds', {
+                        dreamId: dream.DreamId,
+                        amount: formData.Amount
+                    });
+                }
+            }
+
             setFormData({ ...formData, Amount: '', Category: '', SubCategory: '' });
             Swal.fire({
                 icon: 'success',
                 title: 'Saved',
-                text: 'Expense added successfully',
+                text: 'Expense added & Dream updated successfully',
                 timer: 1500,
                 showConfirmButton: false
             });

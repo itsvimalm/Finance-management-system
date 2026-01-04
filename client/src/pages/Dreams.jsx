@@ -111,7 +111,8 @@ const Dreams = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        backdropFilter: 'blur(5px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -126,7 +127,8 @@ const Dreams = () => {
         width: '100%',
         maxWidth: '400px',
         boxShadow: 'var(--shadow-lg)',
-        border: '1px solid var(--border)'
+        border: '1px solid var(--border)',
+        color: 'var(--text)'
     };
 
     return (
@@ -176,7 +178,8 @@ const Dreams = () => {
                                         fontWeight: 'bold',
                                         display: 'flex',
                                         alignItems: 'center',
-                                        gap: '0.25rem'
+                                        gap: '0.25rem',
+                                        zIndex: 1
                                     }}>
                                         <CheckCircle size={12} /> ACHIEVED
                                     </div>
@@ -202,13 +205,13 @@ const Dreams = () => {
 
                                 <h3 style={{ fontSize: '1.25rem', marginBottom: '0.25rem' }}>{dream.ItemName}</h3>
                                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    <Target size={14} /> Target: ${parseFloat(dream.TargetAmount).toLocaleString()}
+                                    <Target size={14} /> Target: ₹{parseFloat(dream.TargetAmount).toLocaleString('en-IN')}
                                 </p>
 
                                 <div style={{ marginBottom: '1.5rem' }}>
                                     <div className="flex justify-between" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>
                                         <span style={{ fontWeight: '600' }}>
-                                            ${parseFloat(dream.CurrentSaved).toLocaleString()}
+                                            ₹{parseFloat(dream.CurrentSaved).toLocaleString('en-IN')}
                                         </span>
                                         <span style={{ color: isAchieved ? 'var(--secondary)' : 'var(--primary)', fontWeight: '600' }}>
                                             {progress.toFixed(0)}%
@@ -233,16 +236,17 @@ const Dreams = () => {
                                     className="btn"
                                     style={{
                                         width: '100%',
-                                        background: isAchieved ? 'var(--background)' : 'var(--text)',
+                                        background: isAchieved ? 'var(--background)' : 'var(--primary)',
                                         color: isAchieved ? 'var(--text-secondary)' : 'white',
                                         cursor: isAchieved ? 'default' : 'pointer',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        gap: '0.5rem'
+                                        gap: '0.5rem',
+                                        opacity: isAchieved ? 0.7 : 1
                                     }}
                                 >
-                                    {isAchieved ? 'Goal Reach! 🎉' : <><TrendingUp size={18} /> Add Funds</>}
+                                    {isAchieved ? 'Goal Reached! 🎉' : <><TrendingUp size={18} /> Add Funds</>}
                                 </button>
                             </div>
                         );
@@ -267,12 +271,12 @@ const Dreams = () => {
                                 />
                             </div>
                             <div style={{ marginBottom: '1.5rem' }}>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Target Amount ($)</label>
+                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Target Amount (₹)</label>
                                 <input
                                     type="number"
                                     value={newTargetAmount}
                                     onChange={(e) => setNewTargetAmount(e.target.value)}
-                                    placeholder="e.g. 2000"
+                                    placeholder="e.g. 150000"
                                     required
                                 />
                             </div>
@@ -303,7 +307,7 @@ const Dreams = () => {
                         </p>
                         <form onSubmit={handleAddFunds}>
                             <div style={{ marginBottom: '1.5rem' }}>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Amount to Add ($)</label>
+                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Amount to Add (₹)</label>
                                 <input
                                     type="number"
                                     value={fundAmount}
